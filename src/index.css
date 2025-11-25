@@ -599,7 +599,7 @@ input[type="number"] {
 /* End PageNotFound */
 /* Start Footer */
 footer {
-    position: fixed; 
+    position: absolute; 
     grid-column-start: 2;
     grid-column-end: 6;
     width: 100%;
