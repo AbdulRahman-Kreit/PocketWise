@@ -1,0 +1,1016 @@
+/* Start Variables */
+:root {
+    --nav-background-color: #91a47c;
+    --heading-color: #f0f3b7;
+    --background-color: #e6f5d5;
+    --main-text-color: #326730;
+    --alternative-text-color: #ffffff;
+    --main-button-color: #e6f5d5;
+    --hover-button-color: #90bc5a;
+    --btn-text-color: #326730;
+    --btn-text-hover-color: #e6f5d5;
+    --footer-bg-color: #c9d9b6;
+    --green-theme: #e6f5d5;
+    --maroon-theme: #8f2b2b;
+    --blue-theme: #6b9dff;
+    --dropdown-color: #d9d9d9;
+    --main-radius: 5px;
+    --main-duratoin: 0.3s;
+    --main-margin: 80px;
+    --mobile-margin: 40px;
+}
+/* End Variables */
+/* Start Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans", sans-serif;
+    background-color: var(--background-color);
+    height: 100%;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    width: 100%;
+    height: 100vh;
+}
+ul {
+    list-style: none;
+}
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+main {
+    position: relative;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    padding: 0;
+    margin: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+input[type="number"] {
+    -moz-appearance: textfield; 
+}
+/* End Global Styles */
+/* Start Navbar */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    grid-column: 1;
+    background-color: var(--nav-background-color);
+}
+.navbar h1 {
+    color: var(--heading-color);
+    font-size: 2.5em;
+}
+.navbar .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+.navbar .links a {
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 10px 20px;
+    background-color: var(--main-button-color);
+    color: var(--btn-text-color);
+    width: 200px;
+    margin: 15px auto;
+    border-radius: var(--main-radius);
+    cursor: pointer;
+    transition: var(--main-duratoin);
+}
+.navbar .links a:hover,
+.navbar .links .active {
+    background-color: var(--hover-button-color);
+    color: var(--btn-text-hover-color);
+}
+    .menu-icon,
+    .mobile-nav {
+        display: none;
+    }
+/* End Navbar */
+/* Start AddTransaction */
+.add-transaction {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: calc(var(--main-margin) - 40px) 0;
+    padding: 0px;
+}
+.add-transaction h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--main-text-color);
+    margin-bottom: calc(var(--main-margin) - 70px);
+}
+.add-transaction .name-section, 
+.add-transaction .date-section, 
+.add-transaction .amount-section, 
+.add-transaction .type-section {
+    margin-left: var(--main-margin);
+    margin-right: var(--main-margin);
+} 
+.add-transaction .name-section h3 {
+    margin-top: 0;
+}
+.add-transaction .name-section input {
+    width: 50%;
+    padding: 10px;
+    outline: none;
+    border-radius: var(--main-radius);
+    border: 2px solid var(--main-text-color);
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #333;
+}
+.add-transaction .date-section .date {
+    display: flex;
+    flex-direction: row;
+}
+.add-transaction .date-section .date div {
+    
+    text-align: center;
+    padding: 0;
+    margin-right: 20px;
+}
+.add-transaction .date-section .date input {
+    display: block;
+    width: 80px;
+    height: 40px;
+    font-size: 1.1em;
+    font-weight: 400;
+    border: 2px solid var(--main-text-color);
+    border-radius: var(--main-radius);
+    outline: none;
+    padding: 0 10px;
+}
+.add-transaction .date-section .date label {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+.add-transaction .amount-section input {
+    width: 230px;
+    height: 40px;
+    font-size: 1.1em;
+    font-weight: 400;
+    border: 2px solid var(--main-text-color);
+    border-radius: var(--main-radius);
+    outline: none;
+    padding: 0 10px;
+}
+.add-transaction .type-section div {
+    margin-bottom: 10px;
+}
+.add-transaction .type-section input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.add-transaction .type-section label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative; 
+    padding-left: 30px; 
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+.add-transaction .type-section label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #555; 
+    border-radius: 50%; 
+    background-color: #f7f7f7;
+}
+.add-transaction .type-section label::after {
+    content: '';
+    position: absolute;
+    left: 4px; 
+    top: 4px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: var(--nav-background-color); 
+    transform: scale(0);
+    transition: transform var(--main-duratoin) ease-in-out;
+}
+.add-transaction .type-section input[type="radio"]:checked + label::after {
+    transform: scale(1);
+}
+.add-transaction .type-section input[type="radio"]:checked + label::before {
+    border-color: var(--nav-background-color);
+}
+.add-transaction .add-btn {
+    margin: 40px auto;
+    padding: 15px 20px;
+    width: fit-content;
+    background-color: var(--nav-background-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--alternative-text-color);
+    border-radius: var(--main-radius);
+    transition: var(--main-duratoin);
+}
+.add-transaction .add-btn:hover {
+    background-color: var(--hover-button-color);
+}
+/* End AddTransaction */
+/* Start Success Message */
+.success-msg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15%;
+    margin-left: 30%;
+    padding: 35px;
+    background-color: hsl(0, 0%, 90%);
+    color: var(--nav-background-color);
+    border-radius: var(--main-radius);
+}
+.success-msg i {
+    font-size: 3em;
+}
+.success-msg button {
+    margin-top: 20px;
+    padding: 15px 20px;
+    width: fit-content;
+    background-color: var(--nav-background-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--alternative-text-color);
+    border-radius: var(--main-radius);
+    transition: var(--main-duratoin);
+    transition: var(--main-duratoin);
+}
+.success-msg button:hover {
+    background-color: var(--hover-button-color);
+}
+/* End Success Message */
+/* Start Transaction History */
+.transaction-history {
+    display: flex;
+    flex-direction: column;
+    margin: calc(var(--main-margin) - 40px);
+    
+}
+/* Header */
+.transaction-history h1 {
+    font-size: 2em;
+    color: var(--main-text-color);
+    margin-bottom: 40px;
+}
+/* Controls */
+.transaction-history .controls {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+.transaction-history .controls label {
+    position: relative;
+    top: 3px;
+    width: fit-content;
+    height: fit-content;
+    margin-right: 5px;
+    font-size: 1.1em;
+    color: var(--main-text-color);
+    text-align: center;
+}
+.transaction-history .controls .search {
+    width: 330px;
+    height: 30px;
+    font-size: 1.1em;
+    font-weight: 400;
+    border: 2px solid var(--main-text-color);
+    border-radius: var(--main-radius);
+    outline: none;
+    padding: 0 10px;
+}
+.transaction-history .controls .control-btns {
+    display: flex;
+    flex-direction: row;
+}
+.transaction-history .controls .control-btns button {
+    margin-left: 80px;
+    font-size: 1.2em;
+    padding: 6px 18px;
+    background-color: var(--nav-background-color);
+    color: var(--alternative-text-color);
+    border-radius: var(--main-radius);
+    transition: var(--main-duratoin);
+}
+.transaction-history .controls .control-btns .filter-btn,
+.transaction-history .controls .control-btns .sort-btn {
+    position: relative;
+}
+.transaction-history .controls .control-btns button:hover {
+    background-color: var(--hover-button-color);
+}
+.transaction-history .controls .filter-list-container,
+.transaction-history .controls .sort-list-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    width: 200px;
+    background-color:  var(--dropdown-color);
+    border-radius: var(--main-radius);
+    overflow: hidden;
+    z-index: 4;
+}
+.transaction-history .controls .dropdown-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+.transaction-history .controls .dropdown-item {
+    padding: 12px;
+    width: 100%;
+    color: var(--main-font-color);
+    cursor: pointer;
+}
+.transaction-history .controls .dropdown-item:not(:last-child) {
+    border-bottom: 2px solid var(--nav-background-color);
+}
+.transaction-history .controls .dropdown-item input {
+    margin-right: 10px;
+}
+/* Transaction List */
+.transaction-history .transaction-list {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: 100%;
+}
+.transaction-history .transaction-list h3 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 15px;
+    padding: 0px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+.transaction-history .transaction-list h3 div {
+    width: 200px;
+    margin-right: 0;
+    text-align: left;
+}
+.transaction-history .transaction-list .list-container {
+    overflow-y: scroll; 
+    max-height: 400px;
+    scrollbar-width: thin; 
+    scrollbar-color: var(--nav-background-color) var(--background-color); 
+}
+.transaction-history .transaction-list .list-container::-webkit-scrollbar {
+    width: 8px;
+}
+.transaction-history .transaction-list .list-container::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 10px;
+}
+.transaction-history .transaction-list .list-container::-webkit-scrollbar-thumb {
+    background-color: var(--nav-background-color); 
+    border-radius: 10px;
+    border: 2px solid var(--background-color);
+}
+.transaction-history .transaction-list .list-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--hover-button-color);
+}
+.transaction-history .transaction-list .list {
+    margin: 0;
+    padding: 0 5px;
+}
+.transaction-history .transaction-list .list .listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--nav-background-color);
+    color: var(--alternative-text-color);
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: var(--main-radius);
+    
+}
+.transaction-history .transaction-list .list .listItem .textbox {
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+
+}
+.transaction-history .transaction-list .list .listItem .textbox div {
+    text-align: left;
+    display: unset;
+    width: 200px;
+}
+.transaction-history .transaction-list .list .listItem .t-btns button {
+    background-color: var(--alternative-text-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    font-size: 1em;
+    color: var(--nav-background-color);
+    transition: var(--main-duratoin);
+}
+.transaction-history .transaction-list .list .listItem .t-btns button:hover {
+    background-color: var(--hover-button-color);
+    color: var(--alternative-text-color);
+}
+/* End Transaction History */
+/* Start Dashboard */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+/* Summary */
+.dashboard .summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+    column-gap: 200px;
+    margin-top: calc(var(--main-margin) - 20px);
+}
+.dashboard .summary .box {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--nav-background-color);
+    border-radius: var(--main-radius);
+    font-weight: 600;
+    color: var(--alternative-text-color);
+    padding: 15px 20px;
+}
+.dashboard .summary .box .icon {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    color: var(--nav-background-color);
+    font-size: 1.3em;
+}
+.dashboard .summary .box .text {
+    font-size: 1.5em;
+}
+.dashboard .summary .box .text p {
+    margin: 0;
+}
+.dashboard .summary .box .text p:first-child {
+    font-weight: bold;
+}
+/* Recent Transaction List */
+.dashboard .recent-transactions {
+    display: flex;
+    flex-direction: column;
+    margin: calc(var(--main-margin) - 40px) auto;
+    background-color: var(--nav-background-color);
+    color: var(--alternative-text-color);
+    width: 100%;
+}
+.dashboard .recent-transactions h2 {
+    margin: 0;
+    margin-bottom: 15px; 
+    padding: 15px; 
+}
+.dashboard .recent-transactions .title {
+    display: flex;
+    flex-direction: row;
+    margin: 0; 
+    padding: 0 15px; 
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.3em;
+    font-weight: 600;
+    width: 100%;
+}
+.dashboard .recent-transactions .title div {
+    width: 180px;
+    margin: 0;
+    text-align: left;
+}
+.dashboard .recent-transactions .title div:first-child {
+    width: 300px;
+}
+
+.dashboard .recent-transactions .list {
+    margin: 0;
+    padding: 0; 
+}
+.dashboard .recent-transactions .list .listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--nav-background-color);
+    color: var(--alternative-text-color);
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    border-radius: var(--main-radius);
+}
+.dashboard .recent-transactions .list .listItem .textbox {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin: 0;
+}
+.dashboard .recent-transactions .list .listItem .textbox div {
+    width: 180px;
+    margin: 0;
+    text-align: left;
+}
+.dashboard .recent-transactions .list .listItem .textbox div:first-child {
+    width: 300px;
+}
+/* End Dashboard */
+/* Start PageNotFound */
+.not-found-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    height: calc(100% - 66px);
+}
+.not-found-page h1 {
+    font-size: 6em;
+    font-weight: bolder;
+    margin-bottom: 0;
+    color: var(--nav-background-color);
+}
+.not-found-page p {
+    font-size: 1.7em;
+    font-weight: 600;
+    color: var(--btn-text-color);
+}
+.not-found-page a {
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 10px;
+    background-color: var(--nav-background-color);
+    color: var(--alternative-text-color);
+    width: 100px;
+    margin: 15px auto;
+    text-align: center;
+    border-radius: var(--main-radius);
+    cursor: pointer;
+    transition: var(--main-duratoin);
+}
+.not-found-page a:hover {
+    background-color: var(--hover-button-color);
+}
+.not-found-page a i {
+    margin-right: 7px;
+}
+/* End PageNotFound */
+/* Start Footer */
+footer {
+    position: static; 
+    grid-column-start: 2;
+    grid-column-end: 6;
+    width: 100%;
+    margin: 0;
+    padding: 6px 0;
+    bottom: 0;
+    background-color: var(--footer-bg-color);
+    margin-top: auto;
+}
+footer .footer-text {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+/* End Footer */
+/* Start Responsiveness */
+/* For Tablets & Mobiles */
+@media (max-width: 1199px) {
+    /* Global Styles */
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    /* Navbar */
+    .navbar {
+        display: none;
+    }
+    .menu-icon {
+        display: block; 
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 10;
+        background-color: var(--nav-background-color);
+        color: var(--alternative-text-color);
+        font-size: 1.5em;
+        padding: 8px 12px;
+        border-radius: var(--main-radius);
+        transition: var(--main-duratoin);
+    }
+    .menu-icon:hover {
+        background-color: var(--hover-button-color);
+    }
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px; 
+        height: 100%;
+        background-color: var(--nav-background-color);
+        z-index: 9;
+        transform: translateX(-100%); 
+        transition: transform var(--main-duratoin) ease-in-out;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .mobile-nav.open {
+        transform: translateX(0); 
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+    .mobile-nav h1 {
+        color: var(--heading-color);
+        margin-top: var(--mobile-margin);
+        font-size: 2em;
+        padding-top: 20px;
+    }
+    .mobile-nav .links {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .mobile-nav .links a {
+        font-size: 1.1em;
+        font-weight: 600;
+        padding: 7px;
+        background-color: var(--main-button-color);
+        color: var(--btn-text-color);
+        width: 80%;
+        margin: 10px auto;
+        border-radius: var(--main-radius);
+        transition: var(--main-duratoin);
+    }
+    .mobile-nav .links a:hover,
+    .mobile-nav .links .active {
+        background-color: var(--hover-button-color);
+        color: var(--btn-text-hover-color);
+    }
+    .mobile-nav .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em;
+        color: var(--heading-color);
+        padding: 5px;
+    }
+    /* Add Transaction */
+    .add-transaction {
+        margin: var(--mobile-margin);
+        padding: var(--mobile-margin) calc(var(--mobile-margin) - 20px);
+    }
+    .add-transaction h3 {
+        margin-bottom: 20px;
+    }
+    .add-transaction .name-section, 
+    .add-transaction .date-section, 
+    .add-transaction .amount-section, 
+    .add-transaction .type-section {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 30px;
+    } 
+    .add-transaction .name-section input {
+        width: 90%; 
+        box-sizing: border-box; 
+    }
+    .add-transaction .date-section .date {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; 
+    }
+    .add-transaction .date-section .date div {
+        margin-right: 15px;
+        margin-bottom: 10px;
+    }
+    .add-transaction .amount-section input {
+        width: 90%;
+        box-sizing: border-box;
+    }
+    .add-transaction .add-btn {
+        width: 80%;
+        max-width: 200px;
+        margin-bottom: calc(var(--mobile-margin) + 20px);
+    }
+    /* Success Message */
+    .success-msg {
+        width: 400px;
+        padding: 20px;
+        margin-left: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .success-msg i {
+        font-size: 2em;
+    }
+    .success-msg h2 {
+        font-size: 1.5em;
+    }
+    .success-msg button {
+        padding: 15px;
+        font: 0.9em;
+    }
+    /* Transaction History */
+    .transaction-history {
+        display: flex;
+        flex-direction: column;
+        margin: var(--mobile-margin);
+        
+    }
+    /* Header */
+    .transaction-history h1 {
+        margin-bottom: 20px;
+    }
+    /* Controls */
+    .transaction-history .controls {
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+    .transaction-history .controls label {
+        top: 0;
+    }
+    .transaction-history .controls .search-container { 
+        display: flex; 
+        align-items: center; 
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .transaction-history .controls .search {
+        width: 100%;
+        box-sizing: border-box; 
+        margin-right: 10px;
+    }
+    .transaction-history .controls .search-icon {
+        font-size: 1.3em;
+        color: var(--main-text-color);
+    }
+    .transaction-history .controls .control-btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 5px;
+    }
+    .transaction-history .controls .control-btns button {
+        margin-left: 10px;
+        margin-right: 0; 
+    }
+    /* Transaction List Header */
+    .transaction-history .transaction-list h3 {
+        margin-left: 0;
+        font-size: 1.1em;
+    }
+    .transaction-history .transaction-list h3 div {
+        width: 90px; 
+    }
+    /* Transaction List */
+    .transaction-history .transaction-list h3 {
+        display: none;
+    }
+    .transaction-history .transaction-list .list-container {
+        max-height: 400px; 
+    }
+    .transaction-history .transaction-list .list .listItem {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 15px; 
+        font-size: 1em;
+    }
+    .transaction-history .transaction-list .list .listItem .textbox {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 100%; 
+        margin-bottom: 10px;
+    }
+    .transaction-history .transaction-list .list .listItem .textbox div:first-child {
+        width: 100%; 
+        font-size: 1.1em; 
+        font-weight: bold; 
+        margin-bottom: 10px;
+    }
+    .transaction-history .transaction-list .list .listItem .textbox div {
+        width: 50%;
+        margin-bottom: 5px;
+        display: block; 
+        box-sizing: border-box;
+    }
+    .transaction-history .transaction-list .list .listItem .t-btns {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .transaction-history .transaction-list .list .listItem .t-btns button {
+        width: 35px; 
+        height: 35px;
+        margin-left: 15px;
+    }
+    /* Dashboard */
+    .dashboard {
+        margin: auto;
+        width: 90%;
+    }
+    /* Summary */
+    .dashboard .summary {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 15px;
+        column-gap: 50px; 
+        margin-top: 30px;
+    }
+    .dashboard .summary .box {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    .dashboard .summary .box .text {
+        font-size: 1.3em;
+    }
+    /* Recent Transaction List */
+    .dashboard .recent-transactions {
+        display: flex;
+        flex-direction: column;
+        margin: var(--main-margin) auto;
+        background-color: var(--nav-background-color);
+        color: var(--alternative-text-color);
+        width: 100%;
+    }
+    .dashboard .recent-transactions h2 {
+        margin: 0;
+        margin-bottom: 15px; 
+        padding: 15px;
+    }
+    .dashboard .recent-transactions .title {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0 15px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        font-size: 1.3em;
+        font-weight: 600;
+        width: 100%;
+    }
+    .dashboard .recent-transactions .title div {
+        width: 180px;
+        margin: 0;
+        text-align: left;
+    }
+    .dashboard .recent-transactions .title div:first-child {
+        width: 300px;
+    }
+
+    .dashboard .recent-transactions .list {
+        margin: 0;
+        padding: 0;
+    }
+    .dashboard .recent-transactions .list .listItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: var(--nav-background-color);
+        color: var(--alternative-text-color);
+        font-weight: 600;
+        font-size: 1.1em;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        border-radius: var(--main-radius);
+    }
+    .dashboard .recent-transactions .list .listItem .textbox {
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
+        margin: 0;
+    }
+    .dashboard .recent-transactions .list .listItem .textbox div {
+        width: 180px;
+        margin: 0;
+        text-align: left;
+    }
+    .dashboard .recent-transactions .list .listItem .textbox div:first-child {
+        width: 300px;
+    }
+    /* PageNotFound */
+    .not-found-page h1 {
+        font-size: 4em;
+    }
+    .not-found-page p {
+        font-size: 1.4em;
+        text-align: center;
+    }
+    footer {
+        grid-column-start: unset;
+        grid-column-end: unset;
+        position: fixed; 
+        width: 100%;
+        padding: 6px var(--mobile-margin);
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+    footer .footer-text {
+        text-align: center;
+    }
+}
+/* For Mobiles Only */
+@media (max-width: 767px) {
+    .dashboard .summary {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+    .dashboard .recent-transactions h2 {
+        padding: 15px; 
+        margin: 0;
+        margin-bottom: 15px; 
+    }
+    .dashboard .recent-transactions .title {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0 5px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        font-size: 1em;
+        font-weight: 600;
+        width: 100%;
+    }
+    .dashboard .recent-transactions .title div {
+        width: 180px;
+        margin: 0;
+        text-align: left;
+    }
+
+    .dashboard .recent-transactions .title div:first-child {
+        width: 180px; 
+    }
+
+    .dashboard .recent-transactions .list {
+        margin: 0;
+        padding: 0; 
+    }
+    .dashboard .recent-transactions .list .listItem {
+        font-size: 0.8em;
+        padding: 7px 5px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        border-radius: var(--main-radius);
+    }
+    .dashboard .recent-transactions .list .listItem .textbox div {
+        width: 180px;
+        margin: 0;
+        margin-left: 10px;
+        text-align: left;
+    }
+    .dashboard .recent-transactions .list .listItem .textbox div:first-child {
+        width: 160px;
+    }
+}
+/* End Responsiveness */
